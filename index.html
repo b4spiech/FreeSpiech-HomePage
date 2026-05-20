@@ -272,6 +272,111 @@
       outline: none;
     }
 
+    /* ---------- Contact popover ---------- */
+    .contact-popover {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px 36px;
+      max-width: 420px;
+      width: calc(100% - 32px);
+      background: var(--bg);
+      box-shadow: 0 24px 64px rgba(19, 26, 38, 0.18);
+      color: var(--ink);
+      text-align: center;
+      position: relative;
+    }
+
+    .contact-popover::backdrop {
+      background: rgba(19, 26, 38, 0.45);
+      backdrop-filter: blur(3px);
+    }
+
+    .contact-popover h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+
+    .contact-popover p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .contact-popover .button {
+      display: block;
+      width: 100%;
+    }
+
+    .contact-popover .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 18px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-popover .divider::before,
+    .contact-popover .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .contact-popover .phone-link {
+      display: block;
+      text-decoration: none;
+      color: var(--blue-deep);
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 8px;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .contact-popover .phone-link span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+
+    .contact-popover .phone-link:hover,
+    .contact-popover .phone-link:focus-visible {
+      color: var(--blue-bright);
+      background: var(--blue-tint);
+      outline: none;
+    }
+
+    .popover-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .popover-close:hover,
+    .popover-close:focus-visible {
+      background: var(--blue-tint);
+      color: var(--blue-deep);
+      outline: none;
+    }
+
     /* ---------- Footer ---------- */
     footer {
       margin-top: 56px;
@@ -402,8 +507,20 @@
       <p class="eyebrow">Got a method?</p>
       <h2>Have a workflow worth turning into an app?</h2>
       <p>If there's a process people keep asking you to walk them through — or a framework that should be a tool — let's build it.</p>
-      <a class="button" href="tel:+16165288135">Call (616) 528-8135 &rarr;</a>
+      <button class="button" type="button" popovertarget="contact-popover">Contact us &rarr;</button>
     </section>
+
+    <div id="contact-popover" class="contact-popover" popover="auto">
+      <button class="popover-close" type="button" popovertarget="contact-popover" popovertargetaction="hide" aria-label="Close">&times;</button>
+      <h3>Let's talk.</h3>
+      <p class="lead">Tell us about the workflow you'd like to turn into an app.</p>
+      <a class="button" href="mailto:hello@freespiech.com">Email hello@freespiech.com &rarr;</a>
+      <div class="divider"><span>or</span></div>
+      <a class="phone-link" href="tel:+16165288135">
+        <span>Prefer to call?</span>
+        (616) 528-8135
+      </a>
+    </div>
 
     <footer>
       &copy; FreeSpiech &middot; <a href="https://freespiech.com">freespiech.com</a> &middot; Workflow Systems
